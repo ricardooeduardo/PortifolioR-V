@@ -1,0 +1,373 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core palette - Dark futuristic theme */
+    --background: 210 25% 5%;
+    --foreground: 210 20% 95%;
+
+    --card: 210 20% 8%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 210 20% 8%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 152 100% 42%;
+    --primary-foreground: 210 25% 5%;
+
+    --secondary: 210 15% 15%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 210 15% 18%;
+    --muted-foreground: 210 10% 55%;
+
+    --accent: 200 100% 50%;
+    --accent-foreground: 210 25% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 15% 15%;
+    --input: 210 15% 15%;
+    --ring: 152 100% 42%;
+
+    --radius: 0.75rem;
+
+    /* Header specific vars */
+    --header-bg: 210 20% 12% / 0.8;
+    --header-border: 210 20% 100% / 0.08;
+    --header-text: 210 20% 95%;
+
+    /* Custom design tokens */
+    --glass-bg: 210 20% 10% / 0.6;
+    --glass-border: 210 20% 100% / 0.06;
+    --glass-blur: 12px;
+
+    --gradient-primary: linear-gradient(135deg, hsl(152 100% 42%) 0%, hsl(180 100% 35%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210 25% 8%) 0%, hsl(210 25% 5%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(210 20% 10%) 0%, hsl(210 20% 6%) 100%);
+
+    --shadow-glow: 0 0 40px hsl(152 100% 42% / 0.15);
+    --shadow-card: 0 8px 32px hsl(210 25% 0% / 0.4);
+    --shadow-elevated: 0 20px 60px hsl(210 25% 0% / 0.5);
+
+    /* Sidebar defaults */
+    --sidebar-background: 210 20% 8%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 152 100% 42%;
+    --sidebar-primary-foreground: 210 25% 5%;
+    --sidebar-accent: 210 15% 15%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 210 15% 15%;
+    --sidebar-ring: 152 100% 42%;
+  }
+
+  .dark {
+    --background: 210 25% 5%;
+    --foreground: 210 20% 95%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 210 25% 5%;
+    --card: 210 25% 98%;
+    --card-foreground: 210 25% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 25% 5%;
+    --primary: 152 100% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 210 25% 5%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 210 10% 40%;
+    --accent: 200 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 152 100% 42%;
+    --glass-bg: 0 0% 100% / 0.6;
+    --glass-border: 210 25% 5% / 0.06;
+
+    /* Forces header to stay dark/grey with white text in light mode */
+    --header-bg: 210 15% 20% / 0.85;
+    --header-border: 210 25% 5% / 0.1;
+    --header-text: 0 0% 100%;
+  }
+
+  .neon {
+    --background: 270 50% 5%;
+    --foreground: 270 20% 95%;
+    --card: 270 50% 8%;
+    --card-foreground: 270 20% 95%;
+    --primary: 280 100% 60%;
+    /* Neon Purple */
+    --primary-foreground: 0 0% 100%;
+    --accent: 45 100% 50%;
+    /* Golden/Yellow detail */
+    --accent-foreground: 270 50% 5%;
+    --secondary: 20 100% 60%;
+    /* Orange detail */
+    --secondary-foreground: 270 50% 5%;
+    --muted: 270 30% 15%;
+    --muted-foreground: 270 20% 65%;
+    --border: 270 40% 20%;
+    --ring: 280 100% 60%;
+    --glass-bg: 270 50% 10% / 0.6;
+    --glass-border: 280 100% 60% / 0.2;
+    --shadow-glow: 0 0 30px hsla(280, 100%, 60%, 0.3);
+
+    --header-bg: 270 50% 12% / 0.85;
+    --header-border: 280 100% 60% / 0.15;
+    --header-text: 270 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+
+  /* Glass morphism */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .glass-strong {
+    background: hsl(var(--header-bg));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid hsl(var(--header-border));
+    color: hsl(var(--header-text));
+  }
+
+  /* Force child elements to inherit or use white color when inside glass-strong */
+  .glass-strong .text-muted-foreground,
+  .glass-strong Link,
+  .glass-strong a:not([class*="bg-primary"]) {
+    color: hsl(var(--header-text) / 0.82) !important;
+  }
+
+  .glass-strong .text-foreground {
+    color: hsl(var(--header-text)) !important;
+  }
+
+  .glass-strong button:not([class*="bg-primary"]),
+  .glass-strong svg:not([class*="text-primary"]) {
+    color: hsl(var(--header-text)) !important;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Typing cursor animation */
+  .typing-cursor {
+    border-right: 2px solid hsl(var(--primary));
+    animation: blink 0.8s infinite;
+  }
+
+  @keyframes blink {
+
+    0%,
+    50% {
+      border-color: hsl(var(--primary));
+    }
+
+    51%,
+    100% {
+      border-color: transparent;
+    }
+  }
+
+  /* Float animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Pulse glow */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px hsl(152 100% 42% / 0.3);
+    }
+
+    50% {
+      box-shadow: 0 0 40px hsl(152 100% 42% / 0.5);
+    }
+  }
+
+  /* Slide up animation */
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Fade in */
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Scale in */
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out forwards;
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Particle styles */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: hsl(var(--primary) / 0.3);
+    pointer-events: none;
+  }
+
+  /* Code font */
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Standard section spacing */
+  .section-standard {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Button micro interaction */
+  .btn-micro {
+    @apply transition-all duration-200;
+  }
+
+  .btn-micro:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-micro:active {
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Font classes for the builder */
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-opensans {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}

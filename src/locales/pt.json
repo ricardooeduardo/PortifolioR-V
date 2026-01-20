@@ -1,0 +1,266 @@
+{
+    "header": {
+        "home": "Home",
+        "about": "Sobre",
+        "services": "Serviços",
+        "portfolio": "Portfólio",
+        "contact": "Contato",
+        "whatsapp": "WhatsApp"
+    },
+    "hero": {
+        "title": "Soluções Digitais para",
+        "description": "R&V CODE LAB transforma ideias em aplicações seguras, rápidas e escaláveis websites, sistemas e integrações personalizadas para o seu negócio.",
+        "cta_builder": "Criar Minha Landing Page",
+        "cta_portfolio": "Ver Portfólio",
+        "performance": "Performance",
+        "accessibility": "Acessibilidade",
+        "scalability": "Escalabilidade",
+        "mockup_placeholder": "Seu projeto aqui",
+        "mockup_title": "Monte seu site agora",
+        "mockup_desc": "Crie uma landing page profissional em minutos, sem código.",
+        "mockup_start": "Começar",
+        "mockup_projects": "Ver projetos",
+        "words": [
+            "Marcas",
+            "Negócios",
+            "Startups",
+            "Produtos",
+            "Equipes"
+        ]
+    },
+    "services": {
+        "badge": "Nossos Serviços",
+        "title": "Soluções Completas para seu Negócio",
+        "description": "Como uma software house completa, oferecemos todos os serviços necessários para transformar sua presença digital e automatizar seus processos.",
+        "items": [
+            {
+                "title": "Sites Profissionais",
+                "description": "Sites profissionais que fortalecem sua marca",
+                "features": [
+                    "Design moderno e responsivo",
+                    "SEO para melhor posicionamento",
+                    "Painel administrativo simples"
+                ]
+            },
+            {
+                "title": "Landing Pages",
+                "description": "Páginas focadas em conversão e resultados",
+                "features": [
+                    "Estrutura otimizada para vendas",
+                    "Copywriting estratégico",
+                    "Integração"
+                ]
+            },
+            {
+                "title": "Sistemas Web",
+                "description": "Soluções sob medida para o seu negócio",
+                "features": [
+                    "Sistemas personalizados",
+                    "APIs e integrações completas",
+                    "Arquitetura segura e escalável"
+                ]
+            },
+            {
+                "title": "Aplicações Mobile-First",
+                "description": "Aplicações rápidas, modernas e acessíveis",
+                "features": [
+                    "PWA (funciona como app)",
+                    "Offline e alto desempenho",
+                    "Notificações push"
+                ]
+            },
+            {
+                "title": "Design UI/UX",
+                "description": "Experiência intuitiva e visual profissional",
+                "features": [
+                    "Interfaces modernas",
+                    "Prototipação interativa",
+                    "Identidade visual consistente"
+                ]
+            },
+            {
+                "title": "Backend & APIs",
+                "description": "Estrutura sólida que faz tudo funcionar",
+                "features": [
+                    "APIs RESTful",
+                    "Microsserviços",
+                    "Cloud e alta performance"
+                ]
+            },
+            {
+                "title": "Segurança & Performance",
+                "description": "Seu sistema protegido e otimizado",
+                "features": [
+                    "Auditoria de código",
+                    "Otimização de performance",
+                    "Monitoramento contínuo"
+                ]
+            },
+            {
+                "title": "Manutenção & Suporte",
+                "description": "Tranquilidade após a entrega",
+                "features": [
+                    "Suporte contínuo",
+                    "Backups automáticos",
+                    "Atualizações de segurança"
+                ]
+            }
+        ]
+    },
+    "portfolio": {
+        "badge": "Portfólio",
+        "title": "Nossos Projetos",
+        "description": "Explore nossos trabalhos organizados por categoria. Cada projeto representa nossa dedicação à excelência.",
+        "cta_all": "Ver todos os projetos",
+        "view_projects": "Ver projetos",
+        "projects_count": "projetos",
+        "categories": [
+            {
+                "title": "Desenvolvimento",
+                "description": "Sites, sistemas e landing pages"
+            },
+            {
+                "title": "Design",
+                "description": "UI/UX, identidade visual e materiais"
+            },
+            {
+                "title": "Plataformas",
+                "description": "Sistemas web e aplicações"
+            }
+        ]
+    },
+    "tech": {
+        "badge": "Stack Tecnológico",
+        "title": "Tecnologias que Dominamos",
+        "description": "Utilizamos as melhores ferramentas do mercado para entregar soluções modernas e escaláveis."
+    },
+    "testimonials": {
+        "badge": "Depoimentos",
+        "title": "O que nossos clientes dizem",
+        "description": "A satisfação dos nossos clientes é nossa maior conquista.",
+        "items": [
+            {
+                "name": "Carlos Moreira",
+                "role": "",
+                "content": "Ótimo atendimento, escutaram o que eu pedi, executaram com tempo curto e estou tendo um suporte maravilhoso."
+            },
+            {
+                "name": "Dyordan Rafael",
+                "role": "",
+                "content": "Nota 10, valeu demais! Os meninos me atenderam super bem e tudo saiu certinho."
+            },
+            {
+                "name": "Carlos Oliveira",
+                "role": "",
+                "content": "Solução robusta e desempenho excelente. Nossa loja online nunca funcionou tão bem. Vendas aumentaram 40% após o lançamento."
+            }
+        ]
+    },
+    "contact": {
+        "badge": "Contato",
+        "title": "Vamos conversar sobre seu projeto?",
+        "description": "Entre em contato conosco e transforme sua ideia em realidade.",
+        "form_name": "Nome",
+        "form_email": "E-mail",
+        "form_message": "Mensagem",
+        "form_submit": "Enviar mensagem",
+        "form_submitting": "Enviando...",
+        "form_name_placeholder": "Seu nome completo",
+        "form_email_placeholder": "seu@email.com",
+        "form_message_placeholder": "Descreva seu projeto...",
+        "info_title": "Informações de Contato",
+        "info_email_label": "E-mail",
+        "info_whatsapp_label": "WhatsApp",
+        "info_whatsapp_desc": "Clique para abrir o chat",
+        "info_location_label": "Localização",
+        "info_location_desc": "Atendimento remoto em todo Brasil",
+        "info_hours_label": "Horário de Atendimento",
+        "info_hours_body": "Segunda a Sexta: 11h às 16h\nSábado: 10h às 13h"
+    },
+    "common": {
+        "back": "Voltar",
+        "send": "Enviar",
+        "loading": "Enviando...",
+        "search": "Buscar...",
+        "view_project": "Ver projeto"
+    },
+    "portfolio_page": {
+        "title_all": "Todos os Projetos",
+        "desc_all": "Explore todos os nossos trabalhos",
+        "search_placeholder": "Buscar projetos...",
+        "no_results": "Nenhum projeto encontrado com os filtros selecionados.",
+        "clear_filters": "Limpar filtros",
+        "filters": {
+            "all": "Todos",
+            "sites": "Sites",
+            "landing": "Landing Pages",
+            "systems": "Sistemas",
+            "photo": "Designer / Imagens",
+            "video": "Vídeo",
+            "branding": "Branding"
+        }
+    },
+    "builder": {
+        "welcome_title": "Vamos começar!",
+        "welcome_desc": "Preencha seus dados para personalizar sua landing page",
+        "form_name": "Seu Nome",
+        "form_name_placeholder": "Digite seu nome completo",
+        "cta_continue": "Continuar para o Editor",
+        "header_title": "Editor de Landing Page",
+        "header_hello": "Olá",
+        "header_preview": "Preview",
+        "header_export": "Exportar",
+        "sidebar_sections": "Seções",
+        "preview_realtime": "Prévia em tempo real",
+        "editor_customize": "Personalize esta seção",
+        "editor_layout": "Escolha o Layout",
+        "editor_content": "Conteúdo",
+        "editor_colors": "Cores",
+        "modal_title": "Exportar Landing Page",
+        "modal_desc": "Ao exportar, enviaremos suas configurações para nossa equipe desenvolver sua landing page profissional.",
+        "modal_user_data": "Seus dados:",
+        "modal_config": "Configuração:",
+        "modal_sections_count": "seções configuradas",
+        "modal_custom": "Layouts e cores personalizados",
+        "modal_cancel": "Cancelar",
+        "modal_export_cta": "Exportar Landing Page",
+        "success_title": "Landing Page exportada!",
+        "success_desc": "Os dados foram enviados para nossa equipe. Entraremos em contato em breve!"
+    },
+    "not_found": {
+        "title": "404",
+        "oops": "Oops! Página não encontrada",
+        "back_home": "Voltar para Início"
+    },
+    "about_page": {
+        "hero": {
+            "title": "A R&V TEM TUDO O QUE VOCÊ E SEU NEGÓCIO PRECISAM",
+            "text_p1": "A R&V nasceu a partir de um sonho: crescer, ser referência e mostrar ao mundo o verdadeiro valor de cada negócio.",
+            "text_p2": "Acreditamos que toda empresa com um bom produto, um bom serviço e um bom atendimento merece ser vista, reconhecida e escolhida. Por isso, não trabalhamos apenas por dinheiro, trabalhamos por sonhos, resultados e histórias de crescimento.",
+            "text_p3": "Nosso propósito é ajudar sua empresa a escalar e evoluir, transformando o básico em projetos estratégicos de captação de clientes. Criamos sites, landing pages e sistemas que não apenas apresentam seu negócio, mas comunicam valor, geram confiança e convertem.",
+            "list_title": "Oferecemos soluções completas e personalizadas:",
+            "list_item1": "Sistemas desenvolvidos sob medida para o seu negócio",
+            "list_item2": "Tudo o que você precisa em poucos cliques",
+            "list_item3": "Relatórios e métricas para decisões inteligentes",
+            "list_item4": "Design e criação de identidade visual profissional",
+            "footer_text": "Mais do que palavras, entregamos projetos que impulsionam resultados."
+        },
+        "who_we_are": {
+            "badge": "Quem Somos",
+            "title": "Nossa Equipe",
+            "description": "A R&V CodeLab é formada por profissionais apaixonados por tecnologia, inovação e resultados. Nosso time une criatividade, estratégia e desenvolvimento para entregar soluções digitais que realmente fazem a diferença para os negócios.",
+            "partners": [
+                {
+                    "name": "Ricardo Eduardo Soares",
+                    "role": "Sócio da R&V CodeLab • Desenvolvedor Front-end",
+                    "description": "Responsável por transformar ideias em interfaces modernas, funcionais e intuitivas, focadas na melhor experiência do usuário e na conversão de resultados."
+                },
+                {
+                    "name": "Vinícius Kilesse Azevedo",
+                    "role": "Sócio da R&V CodeLab • Desenvolvedor Full Stack",
+                    "description": "Atua no desenvolvimento completo de sistemas e aplicações, integrando performance, segurança e escalabilidade para atender às necessidades reais de cada projeto."
+                }
+            ]
+        }
+    }
+}

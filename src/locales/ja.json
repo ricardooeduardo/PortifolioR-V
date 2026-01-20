@@ -1,0 +1,235 @@
+{
+    "header": {
+        "home": "ホーム",
+        "about": "について",
+        "services": "サービス",
+        "portfolio": "ポートフォリオ",
+        "contact": "お問い合わせ",
+        "whatsapp": "WhatsApp"
+    },
+    "hero": {
+        "title": "のためのデジタル解説ソリューション",
+        "description": "R&V CODE LABは、アイデアを安全で高速、かつ拡張性の高いアプリケーション（ウェブサイト、システム、ビジネス向けのカスタム統合）に変換します。",
+        "cta_builder": "ランディングページを作成する",
+        "cta_portfolio": "ポートフォリオを見る",
+        "performance": "パフォーマンス",
+        "accessibility": "アクセシビリティ",
+        "scalability": "拡張性",
+        "mockup_placeholder": "あなたのプロジェクト",
+        "mockup_title": "今すぐサイトを構築",
+        "mockup_desc": "コードなしで、数分でプロフェッショナルなランディングページを作成します。",
+        "mockup_start": "開始",
+        "mockup_projects": "プロジェクトを見る",
+        "words": [
+            "ブランド",
+            "ビジネス",
+            "スタートアップ",
+            "製品",
+            "チーム"
+        ]
+    },
+    "services": {
+        "badge": "サービス",
+        "title": "ビジネスのための完全なソリューション",
+        "description": "完全なソフトウェアハウスとして、デジタルの存在感を変革し、プロセスを自動化するために必要なすべてのサービスを提供します。",
+        "items": [
+            {
+                "title": "プロフェッショナルウェブサイト",
+                "description": "ブランドを強化するプロフェッショナルなウェブサイト",
+                "features": [
+                    "モダンでレスポンシブなデザイン",
+                    "ポジショニング向上のためのSEO",
+                    "シンプルな管理パネル"
+                ]
+            },
+            {
+                "title": "ランディングページ",
+                "description": "コンバージョンと結果に焦点を当てたページ",
+                "features": [
+                    "販売に最適化された構造",
+                    "戦略的なコピーライティング",
+                    "統合"
+                ]
+            },
+            {
+                "title": "ウェブシステム",
+                "description": "ビジネスに合わせたオーダーメイドのソリューション",
+                "features": [
+                    "カスタムシステム",
+                    "完全なAPIと統合",
+                    "安全で拡張性のあるアーキテクチャ"
+                ]
+            },
+            {
+                "title": "モバイルファーストアプリケーション",
+                "description": "高速でモダン、かつアクセシブルなアプリケーション",
+                "features": [
+                    "PWA（アプリのように動作）",
+                    "オフライン対応と高性能",
+                    "プッシュ通知"
+                ]
+            },
+            {
+                "title": "UI/UXデザイン",
+                "description": "直感的な体験とプロフェッショナルな外観",
+                "features": [
+                    "モダンなインターフェース",
+                    "インタラクティブなプロトタイピング",
+                    "一貫したビジュアルアイデンティティ"
+                ]
+            },
+            {
+                "title": "バックエンドとAPI",
+                "description": "すべてを機能させる強固な構造",
+                "features": [
+                    "RESTful API",
+                    "マイクロサービス",
+                    "クラウドと高性能"
+                ]
+            },
+            {
+                "title": "セキュリティとパフォーマンス",
+                "description": "保護され最適化されたシステム",
+                "features": [
+                    "コード監査",
+                    "パフォーマンスの最適化",
+                    "継続的なモニタリング"
+                ]
+            },
+            {
+                "title": "メンテナンスとサポート",
+                "description": "納品後の安心感",
+                "features": [
+                    "継続的なサポート",
+                    "自動バックアップ",
+                    "セキュリティアップデート"
+                ]
+            }
+        ]
+    },
+    "portfolio": {
+        "badge": "ポートフォリオ",
+        "title": "私たちのプロジェクト",
+        "description": "カテゴリ別に整理された私たちの仕事をご覧ください。各プロジェクトは、卓越性への私たちの献身を表しています。",
+        "cta_all": "すべてのプロジェクトを見る",
+        "view_projects": "プロジェクトを見る",
+        "projects_count": "プロジェクト",
+        "categories": [
+            {
+                "title": "開発",
+                "description": "ウェブサイト、システム、ランディングページ"
+            },
+            {
+                "title": "デザイン",
+                "description": "UI/UX、ビジュアルアイデンティティ、資料"
+            },
+            {
+                "title": "プラットフォーム",
+                "description": "ウェブシステムとアプリケーション"
+            }
+        ]
+    },
+    "tech": {
+        "badge": "技術スタック",
+        "title": "私たちが得意とする技術",
+        "description": "私たちは市場で最高のツールを使用して、モダンで拡張性の高いソリューションを提供します。"
+    },
+    "testimonials": {
+        "badge": "お客様の声",
+        "title": "お客様の声",
+        "description": "お客様の満足が私たちの最大の成果です。",
+        "items": [
+            {
+                "name": "Carlos Moreira",
+                "role": "",
+                "content": "素晴らしいサービス、自分のリクエストをよく聞いてくれて、予定よりも早く仕上げてくれました。その後のサポートも完璧です。"
+            },
+            {
+                "name": "Dyordan Rafael",
+                "role": "",
+                "content": "満点中満点です！ スタッフがとても親切に対応してくれて、すべてが望み通りになりました。"
+            },
+            {
+                "name": "Charles Olive",
+                "role": "",
+                "content": "堅牢なソリューションと優れたパフォーマンス。私たちのオンラインストアはこれまでになく順調に稼働しています。リリース後、売上は40%増加しました。"
+            }
+        ]
+    },
+    "contact": {
+        "badge": "お問い合わせ",
+        "title": "プロジェクトについてお話ししませんか？",
+        "description": "私たちに連絡して、あなたのアイデアを現実にしましょう。",
+        "form_name": "お名前",
+        "form_email": "メールアドレス",
+        "form_message": "メッセージ",
+        "form_submit": "メッセージを送信",
+        "form_submitting": "送信中...",
+        "form_name_placeholder": "フルネーム",
+        "form_email_placeholder": "your@email.com",
+        "form_message_placeholder": "プロジェクトについて説明してください...",
+        "info_title": "連絡先情報",
+        "info_email_label": "メールアドレス",
+        "info_whatsapp_label": "WhatsApp",
+        "info_whatsapp_desc": "クリックしてチャットを開く",
+        "info_location_label": "所在地",
+        "info_location_desc": "ブラジル全土でリモートサービスを提供",
+        "info_hours_label": "営業時間",
+        "info_hours_body": "月曜日〜金曜日：11:00〜16:00\n土曜日：10:00〜13:00"
+    },
+    "common": {
+        "back": "戻る",
+        "send": "送信",
+        "loading": "送信中...",
+        "search": "検索...",
+        "view_project": "プロジェクトを見る"
+    },
+    "portfolio_page": {
+        "title_all": "すべてのプロジェクト",
+        "desc_all": "すべての仕事を見る",
+        "search_placeholder": "プロジェクトを検索...",
+        "no_results": "選択したフィルターに一致するプロジェクトは見つかりませんでした。",
+        "clear_filters": "フィルターをクリア",
+        "filters": {
+            "all": "すべて",
+            "sites": "サイト",
+            "landing": "ランディングページ",
+            "systems": "システム",
+            "photo": "デザイナー / 画像",
+            "video": "動画",
+            "branding": "ブランディング"
+        }
+    },
+    "builder": {
+        "welcome_title": "始めましょう！",
+        "welcome_desc": "詳細を入力してランディングページをカスタマイズしてください",
+        "form_name": "お名前",
+        "form_name_placeholder": "フルネームを入力してください",
+        "cta_continue": "エディターへ進む",
+        "header_title": "ランディングページエディター",
+        "header_hello": "こんにちは",
+        "header_preview": "プレビュー",
+        "header_export": "エクスポート",
+        "sidebar_sections": "セクション",
+        "preview_realtime": "リアルタイムプレビュー",
+        "editor_customize": "このセクションをカスタマイズ",
+        "editor_layout": "レイアウトを選択",
+        "editor_content": "コンテンツ",
+        "editor_colors": "色",
+        "modal_title": "ランディングページをエクスポート",
+        "modal_desc": "エクスポートすると、設定がチームに送信され、プロフェッショナルなランディングページが作成されます。",
+        "modal_user_data": "お客様の情報：",
+        "modal_config": "設定：",
+        "modal_sections_count": "セクションが設定されました",
+        "modal_custom": "カスタムレイアウトと色",
+        "modal_cancel": "キャンセル",
+        "modal_export_cta": "ランディングページをエクスポート",
+        "success_title": "エクスポート完了！",
+        "success_desc": "データがチームに送信されました。間もなくご連絡いたします！"
+    },
+    "not_found": {
+        "title": "404",
+        "oops": "おっと！ページが見つかりません",
+        "back_home": "ホームに戻る"
+    }
+}

@@ -1,0 +1,235 @@
+{
+    "header": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "portfolio": "Portfolio",
+        "contact": "Contact",
+        "whatsapp": "WhatsApp"
+    },
+    "hero": {
+        "title": "Digital Solutions for",
+        "description": "R&V CODE LAB transforms ideas into secure, fast, and scalable applications — websites, systems, and custom integrations for your business.",
+        "cta_builder": "Create My Landing Page",
+        "cta_portfolio": "View Portfolio",
+        "performance": "Performance",
+        "accessibility": "Accessibility",
+        "scalability": "Scalability",
+        "mockup_placeholder": "Your project here",
+        "mockup_title": "Build your site now",
+        "mockup_desc": "Create a professional landing page in minutes, with no code.",
+        "mockup_start": "Start",
+        "mockup_projects": "View projects",
+        "words": [
+            "Brands",
+            "Businesses",
+            "Startups",
+            "Products",
+            "Teams"
+        ]
+    },
+    "services": {
+        "badge": "Our Services",
+        "title": "Complete Solutions for Your Business",
+        "description": "As a complete software house, we offer all the services necessary to transform your digital presence and automate your processes.",
+        "items": [
+            {
+                "title": "Professional Websites",
+                "description": "Professional websites that strengthen your brand",
+                "features": [
+                    "Modern and responsive design",
+                    "SEO for better positioning",
+                    "Simple admin panel"
+                ]
+            },
+            {
+                "title": "Landing Pages",
+                "description": "Pages focused on conversion and results",
+                "features": [
+                    "Structure optimized for sales",
+                    "Strategic copywriting",
+                    "Integration"
+                ]
+            },
+            {
+                "title": "Web Systems",
+                "description": "Tailor-made solutions for your business",
+                "features": [
+                    "Custom systems",
+                    "Complete APIs and integrations",
+                    "Secure and scalable architecture"
+                ]
+            },
+            {
+                "title": "Mobile-First Applications",
+                "description": "Fast, modern, and accessible applications",
+                "features": [
+                    "PWA (works like an app)",
+                    "Offline and high performance",
+                    "Push notifications"
+                ]
+            },
+            {
+                "title": "UI/UX Design",
+                "description": "Intuitive experience and professional look",
+                "features": [
+                    "Modern interfaces",
+                    "Interactive prototyping",
+                    "Consistent visual identity"
+                ]
+            },
+            {
+                "title": "Backend & APIs",
+                "description": "Solid structure that makes everything work",
+                "features": [
+                    "RESTful APIs",
+                    "Microservices",
+                    "Cloud and high performance"
+                ]
+            },
+            {
+                "title": "Security & Performance",
+                "description": "Your system protected and optimized",
+                "features": [
+                    "Code auditing",
+                    "Performance optimization",
+                    "Continuous monitoring"
+                ]
+            },
+            {
+                "title": "Maintenance & Support",
+                "description": "Peace of mind after delivery",
+                "features": [
+                    "Continuous support",
+                    "Automatic backups",
+                    "Security updates"
+                ]
+            }
+        ]
+    },
+    "portfolio": {
+        "badge": "Portfolio",
+        "title": "Our Projects",
+        "description": "Explore our work organized by category. Each project represents our dedication to excellence.",
+        "cta_all": "View all projects",
+        "view_projects": "View projects",
+        "projects_count": "projects",
+        "categories": [
+            {
+                "title": "Development",
+                "description": "Websites, systems, and landing pages"
+            },
+            {
+                "title": "Design",
+                "description": "UI/UX, visual identity, and materials"
+            },
+            {
+                "title": "Platforms",
+                "description": "Web systems and applications"
+            }
+        ]
+    },
+    "tech": {
+        "badge": "Tech Stack",
+        "title": "Technologies We Master",
+        "description": "We use the best tools on the market to deliver modern and scalable solutions."
+    },
+    "testimonials": {
+        "badge": "Testimonials",
+        "title": "What our clients say",
+        "description": "Our clients' satisfaction is our greatest achievement.",
+        "items": [
+            {
+                "name": "Carlos Moreira",
+                "role": "",
+                "content": "Great service, they listened to what I requested, executed in a short time, and I am receiving wonderful support."
+            },
+            {
+                "name": "Dyordan Rafael",
+                "role": "",
+                "content": "10/10, totally worth it! The guys treated me very well and everything turned out perfectly."
+            },
+            {
+                "name": "Charles Olive",
+                "role": "",
+                "content": "Robust solution and excellent performance. Our online store has never worked so well. Sales increased 40% after launch."
+            }
+        ]
+    },
+    "contact": {
+        "badge": "Contact",
+        "title": "Let's talk about your project?",
+        "description": "Get in touch with us and turn your idea into reality.",
+        "form_name": "Name",
+        "form_email": "Email",
+        "form_message": "Message",
+        "form_submit": "Send message",
+        "form_submitting": "Sending...",
+        "form_name_placeholder": "Your full name",
+        "form_email_placeholder": "your@email.com",
+        "form_message_placeholder": "Describe your project...",
+        "info_title": "Contact Information",
+        "info_email_label": "Email",
+        "info_whatsapp_label": "WhatsApp",
+        "info_whatsapp_desc": "Click to open chat",
+        "info_location_label": "Location",
+        "info_location_desc": "Remote service throughout Brazil",
+        "info_hours_label": "Service Hours",
+        "info_hours_body": "Monday to Friday: 11am to 4pm\nSaturday: 10am to 1pm"
+    },
+    "common": {
+        "back": "Back",
+        "send": "Send",
+        "loading": "Sending...",
+        "search": "Search...",
+        "view_project": "View project"
+    },
+    "portfolio_page": {
+        "title_all": "All Projects",
+        "desc_all": "Explore all of our work",
+        "search_placeholder": "Search projects...",
+        "no_results": "No projects found with the selected filters.",
+        "clear_filters": "Clear filters",
+        "filters": {
+            "all": "All",
+            "sites": "Websites",
+            "landing": "Landing Pages",
+            "systems": "Systems",
+            "photo": "Designer / Images",
+            "video": "Video",
+            "branding": "Branding"
+        }
+    },
+    "builder": {
+        "welcome_title": "Let's get started!",
+        "welcome_desc": "Fill in your details to customize your landing page",
+        "form_name": "Your Name",
+        "form_name_placeholder": "Enter your full name",
+        "cta_continue": "Continue to Editor",
+        "header_title": "Landing Page Editor",
+        "header_hello": "Hello",
+        "header_preview": "Preview",
+        "header_export": "Export",
+        "sidebar_sections": "Sections",
+        "preview_realtime": "Real-time preview",
+        "editor_customize": "Customize this section",
+        "editor_layout": "Choose Layout",
+        "editor_content": "Content",
+        "editor_colors": "Colors",
+        "modal_title": "Export Landing Page",
+        "modal_desc": "When exporting, we will send your settings to our team to develop your professional landing page.",
+        "modal_user_data": "Your data:",
+        "modal_config": "Configuration:",
+        "modal_sections_count": "sections configured",
+        "modal_custom": "Custom layouts and colors",
+        "modal_cancel": "Cancel",
+        "modal_export_cta": "Export Landing Page",
+        "success_title": "Landing Page exported!",
+        "success_desc": "The data has been sent to our team. We will be in touch soon!"
+    },
+    "not_found": {
+        "title": "404",
+        "oops": "Oops! Page not found",
+        "back_home": "Return to Home"
+    }
+}
