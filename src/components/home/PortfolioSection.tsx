@@ -15,11 +15,15 @@ const categoryColors = [
   'from-primary/10 to-accent/20',
 ];
 const categoryIds = ['development', 'design', 'platforms'];
-const projectCounts = [4, 41, 3];
+const projectCounts = [4, 0, 3];
 
 export const PortfolioSection = () => {
   const { t } = useTranslation();
-  const categories = t('portfolio.categories', { returnObjects: true }) as any[];
+  const allCategories = t('portfolio.categories', { returnObjects: true }) as any[];
+
+  // Filter out categories with 0 projects
+  const activeIndices = projectCounts.map((count, i) => count > 0 ? i : -1).filter(i => i !== -1);
+  const categories = activeIndices.map(i => allCategories[i]);
 
   return (
     <section id="portfolio" className="section-standard bg-background relative overflow-hidden">
@@ -44,20 +48,21 @@ export const PortfolioSection = () => {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {categories.map((category, index) => {
-            const Icon = categoryIcons[index];
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {categories.map((category, currentIndex) => {
+            const originalIndex = activeIndices[currentIndex];
+            const Icon = categoryIcons[originalIndex];
             return (
               <Link
-                key={index}
-                to={`/portfolio/${categoryIds[index]}`}
+                key={originalIndex}
+                to={`/portfolio/${categoryIds[originalIndex]}`}
                 className="group block animate-slide-up"
-                style={{ animationDelay: `${(index + 2) * 0.1}s` }}
+                style={{ animationDelay: `${(currentIndex + 2) * 0.1}s` }}
               >
-                <article className="glass rounded-2xl overflow-hidden border-white/5 group-hover:border-primary/20 transition-all duration-300 shadow-xl">
-                  <div className={`relative h-48 bg-gradient-to-br ${categoryColors[index]}`}>
+                <article className="glass rounded-2xl overflow-hidden border-white/5 group-hover:border-primary/20 transition-all duration-300 shadow-xl h-full">
+                  <div className={`relative h-48 bg-gradient-to-br ${categoryColors[originalIndex]}`}>
                     <img
-                      src={categoryImages[index]}
+                      src={categoryImages[originalIndex]}
                       alt={`Categoria ${category.title}`}
                       className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
                       loading="lazy"
@@ -68,7 +73,7 @@ export const PortfolioSection = () => {
                       </div>
                     </div>
                     <div className="absolute top-4 right-4 px-3 py-1 rounded-full glass text-xs font-medium">
-                      {projectCounts[index]} {t('portfolio.projects_count')}
+                      {projectCounts[originalIndex]} {t('portfolio.projects_count')}
                     </div>
                   </div>
                   <div className="p-6">
