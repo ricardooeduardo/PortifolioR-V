@@ -31,7 +31,7 @@ const projects: Project[] = [
   // Development
   {
     id: '1',
-    title: 'Prime Gráfica',
+    title: 'Prime Gr??fica',
     description: 'Site com painel de adm, listagem de produtos e direcionamento',
     type: 'site',
     category: 'development',
@@ -41,7 +41,7 @@ const projects: Project[] = [
   {
     id: '2',
     title: 'Setembro Magro',
-    description: 'Landing page voltada para conversão com relatório de insights',
+    description: 'Landing page voltada para convers??o com relat??rio de insights',
     type: 'landing',
     category: 'development',
     image: '/img/setembro.png',
@@ -59,7 +59,7 @@ const projects: Project[] = [
   {
     id: '5',
     title: 'Next Cursos',
-    description: 'Plataforma de cursos com: Integração de API, Sistema de login, Relatórios, Controle de assinaturas',
+    description: 'Plataforma de cursos com: Integra????o de API, Sistema de login, Relat??rios, Controle de assinaturas',
     type: 'site',
     category: 'development',
     image: '/img/curso.png',
@@ -70,7 +70,7 @@ const projects: Project[] = [
   {
     id: '6',
     title: 'CityTour',
-    description: 'Plataforma de viagem e turismo com: API, Integração com banco de dados, Gerenciamento de cadastro, Pagamentos, Planos, Clube de vantagens',
+    description: 'Plataforma de viagem e turismo com: API, Integra????o com banco de dados, Gerenciamento de cadastro, Pagamentos, Planos, Clube de vantagens',
     type: 'system',
     category: 'platforms',
     image: '/img/city.png',
@@ -79,7 +79,7 @@ const projects: Project[] = [
   {
     id: '7',
     title: 'Barbearia Ebenezer',
-    description: 'Sistema para agendamento de horários com: Pagamento, Integração com Google Agenda, Notificações, API, Gerenciador de clientes, Sistema de fidelidade, Planos mensais',
+    description: 'Sistema para agendamento de hor??rios com: Pagamento, Integra????o com Google Agenda, Notifica????es, API, Gerenciador de clientes, Sistema de fidelidade, Planos mensais',
     type: 'system',
     category: 'platforms',
     image: '/img/barba.jpeg',
@@ -88,11 +88,11 @@ const projects: Project[] = [
   {
     id: '8',
     title: 'Projeto Coach',
-    description: 'Site + sistema de gestão de alunos com: Planos mensais, Pagamentos, Relatórios, Treinos, Vídeos, API, Chat com respostas automáticas',
+    description: 'Site + sistema de gest??o de alunos com: Planos mensais, Pagamentos, Relat??rios, Treinos, V??deos, API, Chat com respostas autom??ticas',
     type: 'system',
     category: 'platforms',
     image: '/img/coach.png',
-    tags: ['System', 'API', 'Gestão']
+    tags: ['System', 'API', 'Gest??o']
   },
 
 
