@@ -8,18 +8,21 @@ export interface SectionVariation {
 
 export const BUILDER_SECTIONS: Record<SectionType, SectionVariation[]> = {
     header: [
+        { id: 'ph1', name: 'Pizza Hub Header', preview: 'Logo | Menu | Icons' },
         { id: 'h1', name: 'Logo Esquerda', preview: 'Logo | Menu | CTA' },
         { id: 'h2', name: 'Logo Central', preview: 'Menu | Logo | CTA' },
         { id: 'h3', name: 'Minimalista', preview: 'Logo | Hamburguer' },
         { id: 'h4', name: 'CTA Destaque', preview: 'Menu | Button' },
     ],
     hero: [
+        { id: 'ph1', name: 'Pizza Hub Hero', preview: 'Texto Esq | Imagem Dir' },
         { id: 'hr1', name: 'Split (L/R)', preview: 'Texto à esquerda, Imagem à direita' },
         { id: 'hr2', name: 'Centralizado', preview: 'Foco no centro com overlay' },
         { id: 'hr3', name: 'Full Image', preview: 'Imagem total com texto' },
         { id: 'hr4', name: 'Clean Gradient', preview: 'Apenas texto sobre gradiente' },
     ],
     services: [
+        { id: 'ph1', name: 'Card Grid (3)', preview: '3 Cards com Preço' },
         { id: 's1', name: 'Icon Grid', preview: '3 colunas com ícones' },
         { id: 's2', name: 'Numbered List', preview: 'Lista com números grandes' },
         { id: 's3', name: 'Modern List', preview: 'Horizontal com imagens' },
@@ -32,18 +35,21 @@ export const BUILDER_SECTIONS: Record<SectionType, SectionVariation[]> = {
         { id: 'a4', name: 'Modern Split', preview: 'Texto e foto divididos' },
     ],
     activities: [
+        { id: 'ph1', name: 'Benefits & HowTo', preview: 'Lista Benefícios + Passos' },
         { id: 'act1', name: 'Gallery Grid', preview: 'Grade de fotos' },
         { id: 'act2', name: 'Simple List', preview: 'Checklist com ícones' },
         { id: 'act3', name: 'Slider', preview: 'Carrossel interativo' },
         { id: 'act4', name: 'Featured Big', preview: 'Destaque único grande' },
     ],
     info: [
+        { id: 'ph1', name: 'Feature Columns', preview: '3 Colunas com Ícone' },
         { id: 'i1', name: 'FAQ Accordion', preview: 'Perguntas e respostas' },
         { id: 'i2', name: 'Feature Cards', preview: '3 blocos informativos' },
         { id: 'i3', name: 'Detail List', preview: 'Lista de diferenciais' },
         { id: 'i4', name: 'Minimal Info', preview: 'Blocos de texto simples' },
     ],
     footer: [
+        { id: 'ph1', name: 'Pizza Hub Footer', preview: '4 Colunas' },
         { id: 'f1', name: 'Simple Copy', preview: 'Copyright apenas' },
         { id: 'f2', name: 'Social Links', preview: 'Redes sociais integradas' },
         { id: 'f3', name: 'Full Footer', preview: 'Colunas e links completos' },

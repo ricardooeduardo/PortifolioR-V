@@ -30,6 +30,7 @@ import { BUILDER_SECTIONS, SectionType, BUILDER_FONTS, BUILDER_COLORS } from '@/
 import { GlobalStyleEditor } from '@/components/builder/GlobalStyleEditor';
 import { LayoutPicker } from '@/components/builder/LayoutPicker';
 import { TemplateRenderer } from '@/components/builder/TemplateRenderer';
+import { ErrorBoundary } from '@/components/ui/error-boundary';
 
 interface BuilderSection {
   uuid: string;
@@ -54,10 +55,12 @@ const LandingBuilder = () => {
   const [activeTab, setActiveTab] = useState<'sections' | 'style' | 'content'>('sections');
 
   const [sections, setSections] = useState<BuilderSection[]>([
-    { uuid: '1', type: 'header', variationId: 'h1', content: { brand: 'Minha Empresa' } },
-    { uuid: '2', type: 'hero', variationId: 'hr1', content: { title: 'Destaque Seu Negócio', subtitle: 'Ajudamos sua empresa a crescer' } },
-    { uuid: '3', type: 'services', variationId: 's1', content: { title: 'Nossos Serviços' } },
-    { uuid: '4', type: 'footer', variationId: 'f1', content: { brand: 'Minha Empresa', copyright: '© 2024' } },
+    { uuid: '1', type: 'header', variationId: 'ph1', content: { brand: 'Nome da sua empresa' } },
+    { uuid: '2', type: 'hero', variationId: 'ph1', content: { title: 'O Slogan\nDa sua empresa', subtitle: 'O subtitulo da sua empresa', cta: 'Saiba mais' } },
+    { uuid: '3', type: 'services', variationId: 'ph1', content: { title: 'Serviços', card1_title: 'Amostra de produto 01', card1_price: 'VALOR', card2_title: 'Amostra 02', card2_price: 'VALOR', card3_title: 'Amostra 03', card3_price: 'VALOR' } },
+    { uuid: '4', type: 'info', variationId: 'ph1', content: { title: 'Informações adicionais', info1_title: 'Diferencial 01', info2_title: 'Diferencial 02', info3_title: 'Diferencial 03' } },
+    { uuid: '5', type: 'activities', variationId: 'ph1', content: { benefits_title: 'Benefícios', how_title: 'Como funciona' } },
+    { uuid: '6', type: 'footer', variationId: 'ph1', content: { brand: 'Sua logo', slogan: 'Seu Slogan ou subtitulo' } },
   ]);
 
   const [globalConfig, setGlobalConfig] = useState({
@@ -288,23 +291,25 @@ const LandingBuilder = () => {
           <div className="flex-1 overflow-y-auto custom-scrollbar">
             {activeTab === 'sections' && (
               <div className="p-4 space-y-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] uppercase font-bold text-muted-foreground px-1">Ativas</label>
-                  {sections.map((s, idx) => (
-                    <div
-                      key={s.uuid}
-                      onClick={() => setActiveSectionUuid(s.uuid)}
-                      className={`group p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${activeSectionUuid === s.uuid ? 'bg-primary/10 border-primary' : 'glass border-transparent hover:border-white/10'
-                        }`}
-                    >
-                      <span className="text-sm font-medium">{s.type === 'about' ? 'Quem Somos' : s.type}</span>
-                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button onClick={(e) => { e.stopPropagation(); moveSection(idx, 'up') }} className="p-1 rounded hover:bg-white/10"><ChevronUp className="w-3 h-3" /></button>
-                        <button onClick={(e) => { e.stopPropagation(); moveSection(idx, 'down') }} className="p-1 rounded hover:bg-white/10"><ChevronDown className="w-3 h-3" /></button>
-                        <button onClick={(e) => { e.stopPropagation(); removeSection(s.uuid) }} className="p-1 rounded hover:bg-destructive/20 text-destructive"><Trash2 className="w-3 h-3" /></button>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-[10px] uppercase font-bold text-muted-foreground px-1">Ativas</label>
+                    {sections.map((s, idx) => (
+                      <div
+                        key={s.uuid}
+                        onClick={() => setActiveSectionUuid(s.uuid)}
+                        className={`group p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${activeSectionUuid === s.uuid ? 'bg-primary/10 border-primary' : 'glass border-transparent hover:border-white/10'
+                          }`}
+                      >
+                        <span className="text-sm font-medium">{s.type === 'about' ? 'Quem Somos' : s.type}</span>
+                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <button onClick={(e) => { e.stopPropagation(); moveSection(idx, 'up') }} className="p-1 rounded hover:bg-white/10"><ChevronUp className="w-3 h-3" /></button>
+                          <button onClick={(e) => { e.stopPropagation(); moveSection(idx, 'down') }} className="p-1 rounded hover:bg-white/10"><ChevronDown className="w-3 h-3" /></button>
+                          <button onClick={(e) => { e.stopPropagation(); removeSection(s.uuid) }} className="p-1 rounded hover:bg-destructive/20 text-destructive"><Trash2 className="w-3 h-3" /></button>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
                 <div className="space-y-4 pt-6 border-t border-white/5 text-center">
@@ -351,21 +356,33 @@ const LandingBuilder = () => {
 
             {/* Rendered Sections */}
             <div className="flex flex-col">
-              {sections.map((s) => (
-                <div
-                  key={s.uuid}
-                  onClick={() => setActiveSectionUuid(s.uuid)}
-                  className={`relative cursor-pointer transition-all border-2 border-transparent ${activeSectionUuid === s.uuid ? 'ring-2 ring-primary ring-inset border-primary/50' : 'hover:border-primary/20'
-                    }`}
-                >
-                  <TemplateRenderer
-                    type={s.type}
-                    variationId={s.variationId}
-                    config={globalConfig}
-                    content={s.content}
-                  />
+              <ErrorBoundary>
+                {sections.map((s) => (
+                  <div
+                    key={s.uuid}
+                    onClick={() => setActiveSectionUuid(s.uuid)}
+                    className={`relative cursor-pointer transition-all border-2 border-transparent ${activeSectionUuid === s.uuid ? 'ring-2 ring-primary ring-inset border-primary/50' : 'hover:border-primary/20'
+                      }`}
+                  >
+                    <ErrorBoundary>
+                      <TemplateRenderer
+                        type={s.type}
+                        variationId={s.variationId}
+                        config={globalConfig}
+                        content={s.content}
+                        viewMode={viewportMode}
+                      />
+                    </ErrorBoundary>
+                  </div>
+                ))}
+              </ErrorBoundary>
+
+              {sections.length === 0 && (
+                <div className="py-20 text-center text-muted-foreground dashed border-2 border-dashed border-white/10 rounded-xl m-8">
+                  <p>Sua página está vazia.</p>
+                  <p className="text-sm">Adicione seções no menu lateral.</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </main>
@@ -391,46 +408,158 @@ const LandingBuilder = () => {
 
                 {/* Content Inputs */}
                 <div className="space-y-4 pt-6 border-t border-white/5">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Conteúdo</h3>
-                  {activeSection.type === 'hero' && (
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">Conteúdo</h3>
+
+                  {/* Pizza Hub & Advanced Inputs */}
+                  {activeSection.variationId.startsWith('ph') || activeSection.variationId === 'ph1' ? (
+                    <div className="space-y-6">
+                      {/* HEADER */}
+                      {activeSection.type === 'header' && (
+                        <div className="space-y-1.5">
+                          <label className="text-xs font-medium ml-1">Nome da Marca</label>
+                          <Input value={activeSection.content.brand || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, brand: e.target.value } })} className="bg-background/30 text-xs" />
+                        </div>
+                      )}
+
+                      {/* HERO */}
+                      {activeSection.type === 'hero' && (
+                        <>
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">Título</label>
+                            <Input value={activeSection.content.title || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, title: e.target.value } })} className="bg-background/30 text-xs" />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">Subtítulo</label>
+                            <Input value={activeSection.content.subtitle || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, subtitle: e.target.value } })} className="bg-background/30 text-xs" />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">Texto do Botão</label>
+                            <Input value={activeSection.content.cta || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, cta: e.target.value } })} className="bg-background/30 text-xs" />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">URL da Imagem</label>
+                            <Input value={activeSection.content.image || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, image: e.target.value } })} className="bg-background/30 text-xs" placeholder="https://..." />
+                          </div>
+                        </>
+                      )}
+
+                      {/* SERVICES */}
+                      {activeSection.type === 'services' && (
+                        <>
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">Título da Seção</label>
+                            <Input value={activeSection.content.title || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, title: e.target.value } })} className="bg-background/30 text-xs" />
+                          </div>
+                          {[1, 2, 3].map(i => (
+                            <div key={i} className="pt-4 border-t border-white/5 space-y-2">
+                              <p className="text-[10px] font-bold opacity-50 uppercase">Card {i}</p>
+                              <Input placeholder="Título" value={activeSection.content[`card${i}_title`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`card${i}_title`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                              <Input placeholder="Preço" value={activeSection.content[`card${i}_price`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`card${i}_price`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                              <Input placeholder="Descrição" value={activeSection.content[`card${i}_desc`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`card${i}_desc`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                              <Input placeholder="URL Imagem" value={activeSection.content[`card${i}_image`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`card${i}_image`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                            </div>
+                          ))}
+                        </>
+                      )}
+
+                      {/* INFO (Features) */}
+                      {activeSection.type === 'info' && (
+                        <>
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">Título da Seção</label>
+                            <Input value={activeSection.content.title || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, title: e.target.value } })} className="bg-background/30 text-xs" />
+                          </div>
+                          {[1, 2, 3].map(i => (
+                            <div key={i} className="pt-4 border-t border-white/5 space-y-2">
+                              <p className="text-[10px] font-bold opacity-50 uppercase">Item {i}</p>
+                              <Input placeholder="Título" value={activeSection.content[`info${i}_title`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`info${i}_title`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                              <Input placeholder="Descrição" value={activeSection.content[`info${i}_desc`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`info${i}_desc`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                            </div>
+                          ))}
+                        </>
+                      )}
+
+                      {/* ACTIVITIES (Benefits & HowTo) */}
+                      {activeSection.type === 'activities' && (
+                        <>
+                          <div className="pt-2 pb-2">
+                            <label className="text-xs font-bold text-primary">BENEFÍCIOS</label>
+                            <Input placeholder="Título Benefícios" value={activeSection.content.benefits_title || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, benefits_title: e.target.value } })} className="bg-background/30 text-xs mt-2" />
+                          </div>
+                          {[1, 2, 3].map(i => (
+                            <div key={`ben-${i}`} className="space-y-1">
+                              <Input placeholder={`Benefício ${i} Título`} value={activeSection.content[`benefit${i}_title`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`benefit${i}_title`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                              <Input placeholder={`Benefício ${i} Desc`} value={activeSection.content[`benefit${i}_desc`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`benefit${i}_desc`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                            </div>
+                          ))}
+
+                          <div className="pt-4 pb-2 border-t border-white/5 mt-4">
+                            <label className="text-xs font-bold text-primary">COMO FUNCIONA</label>
+                            <Input placeholder="Título Como Funciona" value={activeSection.content.how_title || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, how_title: e.target.value } })} className="bg-background/30 text-xs mt-2" />
+                          </div>
+                          {[1, 2, 3].map(i => (
+                            <div key={`step-${i}`} className="space-y-1">
+                              <Input placeholder={`Passo ${i} Descrição`} value={activeSection.content[`step${i}_desc`] || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, [`step${i}_desc`]: e.target.value } })} className="bg-background/30 text-xs h-8" />
+                            </div>
+                          ))}
+                        </>
+                      )}
+
+                      {/* FOOTER */}
+                      {activeSection.type === 'footer' && (
+                        <>
+                          <Input label="Logo/Marca" value={activeSection.content.brand || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, brand: e.target.value } })} className="bg-background/30 text-xs" />
+                          <Input label="Slogan" value={activeSection.content.slogan || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, slogan: e.target.value } })} className="bg-background/30 text-xs" />
+                          <Input label="Copyright" value={activeSection.content.copyright || ''} onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, copyright: e.target.value } })} className="bg-background/30 text-xs" />
+                        </>
+                      )}
+                    </div>
+                  ) : (
+                    // Legacy/Standard Inputs for original templates
                     <div className="space-y-4">
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-medium ml-1">Título</label>
-                        <Input
-                          value={activeSection.content.title || ''}
-                          onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, title: e.target.value } })}
-                          className="bg-background/30 text-xs"
-                        />
-                      </div>
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-medium ml-1">Subtítulo</label>
-                        <Input
-                          value={activeSection.content.subtitle || ''}
-                          onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, subtitle: e.target.value } })}
-                          className="bg-background/30 text-xs"
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {activeSection.type === 'header' && (
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium ml-1">Nome da Marca</label>
-                      <Input
-                        value={activeSection.content.brand || ''}
-                        onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, brand: e.target.value } })}
-                        className="bg-background/30 text-xs"
-                      />
-                    </div>
-                  )}
-                  {/* General Title Fallback */}
-                  {!['hero', 'header'].includes(activeSection.type) && (
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-medium ml-1">Título</label>
-                      <Input
-                        value={activeSection.content.title || ''}
-                        onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, title: e.target.value } })}
-                        className="bg-background/30 text-xs"
-                      />
+                      {activeSection.type === 'hero' && (
+                        <div className="space-y-4">
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">Título</label>
+                            <Input
+                              value={activeSection.content.title || ''}
+                              onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, title: e.target.value } })}
+                              className="bg-background/30 text-xs"
+                            />
+                          </div>
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium ml-1">Subtítulo</label>
+                            <Input
+                              value={activeSection.content.subtitle || ''}
+                              onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, subtitle: e.target.value } })}
+                              className="bg-background/30 text-xs"
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {activeSection.type === 'header' && (
+                        <div className="space-y-1.5">
+                          <label className="text-xs font-medium ml-1">Nome da Marca</label>
+                          <Input
+                            value={activeSection.content.brand || ''}
+                            onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, brand: e.target.value } })}
+                            className="bg-background/30 text-xs"
+                          />
+                        </div>
+                      )}
+
+                      {/* General Title Fallback */}
+                      {!['hero', 'header'].includes(activeSection.type) && (
+                        <div className="space-y-1.5">
+                          <label className="text-xs font-medium ml-1">Título</label>
+                          <Input
+                            value={activeSection.content.title || ''}
+                            onChange={(e) => updateSection(activeSection.uuid, { content: { ...activeSection.content, title: e.target.value } })}
+                            className="bg-background/30 text-xs"
+                          />
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>

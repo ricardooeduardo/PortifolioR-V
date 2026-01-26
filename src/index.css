@@ -74,28 +74,35 @@
   .light {
     --background: 0 0% 100%;
     --foreground: 210 25% 5%;
-    --card: 210 25% 98%;
+    --card: 0 0% 100%;
     --card-foreground: 210 25% 5%;
     --popover: 0 0% 100%;
     --popover-foreground: 210 25% 5%;
     --primary: 152 100% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 20% 95%;
+    --secondary: 210 20% 96%;
     --secondary-foreground: 210 25% 5%;
-    --muted: 210 20% 95%;
+    --muted: 210 20% 96%;
     --muted-foreground: 210 10% 40%;
-    --accent: 200 100% 50%;
+    --accent: 152 100% 42%;
+    /* Brand Green as accent */
     --accent-foreground: 0 0% 100%;
     --border: 210 20% 90%;
     --input: 210 20% 90%;
     --ring: 152 100% 42%;
-    --glass-bg: 0 0% 100% / 0.6;
-    --glass-border: 210 25% 5% / 0.06;
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 210 20% 90% / 0.5;
 
-    /* Forces header to stay dark/grey with white text in light mode */
-    --header-bg: 210 15% 20% / 0.85;
-    --header-border: 210 25% 5% / 0.1;
-    --header-text: 0 0% 100%;
+    /* Light Theme Header - Glass White */
+    --header-bg: 0 0% 100% / 0.8;
+    --header-border: 210 20% 90% / 0.5;
+    --header-text: 210 25% 5%;
+
+    /* Light Theme Background Decoration - Subtle Green Glows */
+    background-image:
+      radial-gradient(circle at 15% 20%, hsl(152 100% 42% / 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 60%, hsl(152 100% 42% / 0.05) 0%, transparent 40%);
+    background-attachment: fixed;
   }
 
   .neon {
@@ -370,4 +377,18 @@
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  /* Natural Leaf Background Section for Light Mode */
+  .bg-leaf-section {
+    @apply relative overflow-hidden transition-colors duration-500;
+  }
+
+  .light .bg-leaf-section {
+    background-color: hsl(152 60% 98%);
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M60 120c33.137 0 60-26.863 60-60S93.137 0 60 0 0 26.863 0 60s26.863 60 60 60zM35 55c0-11 9-20 20-20s20 9 20 20-9 20-20 20-20-9-20-20zm50 20c0-8 6-15 15-15s15 7 15 15-7 15-15 15-15-7-15-15z' fill='%2310b981' fill-opacity='0.03' fill-rule='evenodd'/%3E%3Cpath d='M95 90c0-16.5-13.5-30-30-30S35 73.5 35 90s13.5 30 30 30 30-13.5 30-30z' fill='%2310b981' fill-opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 15rem 15rem;
+  }
+
+  /* Specific override to remove generic gradients in light mode if needed needed, 
+     but keeping it simple for now as the component class updates will handle removing the old gradient */
 }

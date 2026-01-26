@@ -31,7 +31,7 @@ export const ServicesSection = () => {
   const servicesData = t('services.items', { returnObjects: true }) as any[];
 
   return (
-    <section id="services" className="section-standard bg-gradient-to-b from-background via-card/20 to-background border-y border-white/5">
+    <section id="services" className="section-standard bg-leaf-section border-y border-border/50">
       <div className="section-container">
         <div className="text-center mb-16 animate-slide-up">
           <span className="inline-block px-4 py-2 rounded-full glass text-xs font-semibold uppercase tracking-wider text-primary mb-4">

@@ -2,6 +2,8 @@ import React from 'react';
 import { SectionVariation, SectionType } from './constants';
 import { CheckCircle2, Star, Target, Shield, Zap, Layout, Plus, Minus, ArrowRight, Instagram, Facebook, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
+import { cn } from '@/lib/utils';
+
 interface TemplateProps {
     type: SectionType;
     variationId: string;
@@ -12,9 +14,15 @@ interface TemplateProps {
         fontFamily: string;
     };
     content: Record<string, string>;
+    viewMode?: 'desktop' | 'mobile';
 }
 
-export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, config, content }) => {
+export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, config, content, viewMode }) => {
+    const isMobile = viewMode === 'mobile';
+
+    // Helper to strip desktop classes when in mobile view
+    // desktopClasses must include the prefix (e.g. "md:flex")
+    const resp = (base: string, desktopClasses: string) => cn(base, isMobile ? "" : desktopClasses);
     const style = {
         '--primary': config.primaryColor,
         '--text': config.textColor,
@@ -25,6 +33,36 @@ export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, c
 
     const renderHeader = () => {
         switch (variationId) {
+            case 'ph1':
+                return (
+                    <div className="bg-white shadow-sm font-sans" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
+                        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                            {/* Logo */}
+                            <div className="flex items-center gap-2">
+                                <div className="w-10 h-10 bg-gray-200 rounded flex items-center justify-center text-xs font-bold text-gray-500">Logo</div>
+                                <span className="font-bold text-lg" style={{ color: 'var(--primary)' }}>{content.brand || 'Nome da Empresa'}</span>
+                            </div>
+
+                            {/* Menu - Hidden on Mobile */}
+                            <nav className={resp("hidden gap-8 text-sm font-medium", "md:flex")}>
+                                <a href="#" className="hover:opacity-70 transition-opacity">Início</a>
+                                <a href="#" className="hover:opacity-70 transition-opacity">Serviços</a>
+                                <a href="#" className="hover:opacity-70 transition-opacity">Sobre</a>
+                                <a href="#" className="hover:opacity-70 transition-opacity">Contato</a>
+                            </nav>
+
+                            {/* Icons */}
+                            <div className="flex gap-4">
+                                <a href="#" className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded hover:bg-gray-200 transition-colors">
+                                    <Phone className="w-4 h-4 text-gray-600" />
+                                </a>
+                                <a href="#" className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded hover:bg-gray-200 transition-colors">
+                                    <Instagram className="w-4 h-4 text-gray-600" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                );
             case 'h1':
                 return (
                     <div className="flex justify-between items-center py-4 px-6 border-b border-white/10" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
@@ -72,6 +110,35 @@ export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, c
 
     const renderHero = () => {
         switch (variationId) {
+            case 'ph1':
+                return (
+                    <div className={resp("max-w-7xl mx-auto px-6 gap-12 items-center font-sans grid", "md:grid-cols-2 py-16")} style={{ paddingTop: isMobile ? '3rem' : '4rem', paddingBottom: isMobile ? '3rem' : '4rem', backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
+                        {/* Texto */}
+                        <div>
+                            <h1 className={resp("font-extrabold mb-6 leading-tight", "text-4xl md:text-5xl")}>
+                                {content.title || 'O Slogan\nDa sua empresa'}
+                            </h1>
+                            <p className="text-lg opacity-70 mb-8 max-w-lg">
+                                {content.subtitle || 'O subtítulo da sua empresa com uma breve descrição do que vocês oferecem de melhor.'}
+                            </p>
+                            <a href="#" className="inline-block px-8 py-3 rounded-full text-sm font-bold shadow-lg transform transition hover:scale-105" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>
+                                {content.cta || 'Saiba mais'}
+                            </a>
+                        </div>
+
+                        {/* Imagem Hero */}
+                        <div className={resp("w-full bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400 border border-gray-200 shadow-inner overflow-hidden relative", "h-64 md:h-96")}>
+                            {content.image ? (
+                                <img src={content.image} alt="Hero" className="w-full h-full object-cover" />
+                            ) : (
+                                <div className="flex flex-col items-center gap-2">
+                                    <Layout className="w-12 h-12 opacity-20" />
+                                    <span className="text-sm opacity-50">Imagem do produto</span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
             case 'hr1':
                 return (
                     <div className="grid md:grid-cols-2 gap-8 items-center py-20 px-8" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
@@ -124,6 +191,37 @@ export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, c
 
     const renderServices = () => {
         switch (variationId) {
+            case 'ph1':
+                return (
+                    <div className={resp("max-w-7xl mx-auto px-6 font-sans", "py-12")} style={{ paddingTop: isMobile ? '3rem' : '3rem', paddingBottom: isMobile ? '3rem' : '3rem', backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
+                        <h2 className="font-semibold text-lg mb-6 text-opacity-80 uppercase tracking-wide">
+                            {content.title || 'Serviços em Destaque'}
+                        </h2>
+
+                        <div className={resp("grid gap-6", "md:grid-cols-3")}>
+                            {[1, 2, 3].map(i => (
+                                <div key={i} className="bg-white rounded-lg shadow-sm p-4 border border-gray-100 hover:shadow-md transition-shadow">
+                                    <div className="w-full h-40 bg-gray-100 rounded mb-4 overflow-hidden relative flex items-center justify-center text-gray-400">
+                                        {content[`card${i}_image`] ? (
+                                            <img src={content[`card${i}_image`]} alt={`Produto ${i}`} className="w-full h-full object-cover" />
+                                        ) : (
+                                            <div className="flex flex-col items-center">
+                                                <Zap className="w-8 h-8 opacity-20" />
+                                                <span className="text-xs">Imagem</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <h3 className="font-semibold text-gray-900">{content[`card${i}_title`] || `Produto Exemplar ${i}`}</h3>
+                                    <p className="text-sm text-gray-500 mt-1 mb-4 h-10 overflow-hidden">{content[`card${i}_desc`] || `Descrição breve sobre o serviço ou produto ${i} para atrair o cliente.`}</p>
+                                    <div className="flex items-center justify-between mt-auto">
+                                        <span className="font-semibold text-gray-900">{content[`card${i}_price`] || 'R$ 99,90'}</span>
+                                        <a href="#" className="text-white text-xs px-4 py-2 rounded-full font-medium" style={{ backgroundColor: 'var(--primary)' }}>Saiba mais</a>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
             case 's1':
                 return (
                     <div className="py-16 px-8" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
@@ -280,6 +378,53 @@ export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, c
 
     const renderActivities = () => {
         switch (variationId) {
+            case 'ph1':
+                return (
+                    <div className={resp("max-w-7xl mx-auto px-6 grid gap-12 font-sans", "py-16 md:grid-cols-2")} style={{ paddingTop: isMobile ? '3rem' : '4rem', paddingBottom: isMobile ? '3rem' : '4rem', backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
+                        {/* BENEFÍCIOS */}
+                        <div>
+                            <h2 className="font-semibold text-lg mb-6 text-opacity-80 uppercase tracking-wide">{content.benefits_title || 'Benefícios'}</h2>
+
+                            <div className="space-y-6">
+                                {[1, 2, 3].map(i => (
+                                    <div key={i} className="flex gap-4 items-start">
+                                        <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center shrink-0">
+                                            <CheckCircle2 className="w-5 h-5 text-gray-600" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-medium text-lg">{content[`benefit${i}_title`] || `Benefício Exclusivo ${i}`}</h4>
+                                            <p className="text-sm text-gray-500 mt-1">
+                                                {content[`benefit${i}_desc`] || 'Uma descrição detalhada sobre este benefício incrível que sua empresa oferece.'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* COMO FUNCIONA */}
+                        <div className="bg-white shadow-lg rounded-2xl p-8 border border-gray-100">
+                            <h2 className="font-semibold text-lg mb-6 text-gray-900">{content.how_title || 'Como funciona'}</h2>
+
+                            <ol className="space-y-6">
+                                {[1, 2, 3].map(i => (
+                                    <li key={i} className="flex gap-4 items-start">
+                                        <span className="font-bold text-gray-300 text-2xl leading-none">0{i}</span>
+                                        <p className="text-sm text-gray-600 mt-1.5">
+                                            {content[`step${i}_desc`] || `Explicação detalhada da etapa ${i} do processo de funcionamento do seu serviço.`}
+                                        </p>
+                                    </li>
+                                ))}
+                            </ol>
+
+                            <a href="#"
+                                className="inline-block mt-8 text-white px-8 py-3 rounded-full text-sm font-bold shadow-md hover:opacity-90 transition-opacity"
+                                style={{ backgroundColor: 'var(--primary)' }}>
+                                Começar agora
+                            </a>
+                        </div>
+                    </div>
+                );
             case 'act1':
                 return (
                     <div className="py-20 px-8" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
@@ -354,6 +499,25 @@ export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, c
 
     const renderInfo = () => {
         switch (variationId) {
+            case 'ph1':
+                return (
+                    <div className={resp("max-w-7xl mx-auto px-6 font-sans", "py-16")} style={{ paddingTop: isMobile ? '3rem' : '4rem', paddingBottom: isMobile ? '3rem' : '4rem', backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
+                        <h2 className="font-semibold text-lg mb-10 text-opacity-80 uppercase tracking-wide">{content.title || 'Informações Adicionais'}</h2>
+                        <section className={resp("grid gap-8 text-center", "md:grid-cols-3")}>
+                            {[1, 2, 3].map(i => (
+                                <div key={i} className="p-4">
+                                    <div className="w-12 h-12 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                        {i === 1 ? <Target className="w-5 h-5 text-gray-500" /> : i === 2 ? <Shield className="w-5 h-5 text-gray-500" /> : <Zap className="w-5 h-5 text-gray-500" />}
+                                    </div>
+                                    <h4 className="font-bold text-lg mb-2">{content[`info${i}_title`] || `Diferencial ${i}`}</h4>
+                                    <p className="text-sm text-gray-500 leading-relaxed">
+                                        {content[`info${i}_desc`] || `Descrição breve sobre o diferencial ${i} e como ele impacta positivamente.`}
+                                    </p>
+                                </div>
+                            ))}
+                        </section>
+                    </div>
+                );
             case 'i1':
                 return (
                     <div className="py-20 px-8" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>
@@ -426,6 +590,57 @@ export const TemplateRenderer: React.FC<TemplateProps> = ({ type, variationId, c
 
     const renderFooter = () => {
         switch (variationId) {
+            case 'ph1':
+                return (
+                    <footer className={resp("bg-gray-900 text-gray-300 px-6 font-sans", "py-12")} style={{ paddingTop: isMobile ? '3rem' : '3rem', paddingBottom: isMobile ? '3rem' : '3rem' }}>
+                        <div className={resp("max-w-7xl mx-auto grid gap-8 text-sm", "md:grid-cols-4")}>
+                            {/* Coluna 1: Logo e Slogan */}
+                            <div>
+                                <h3 className="font-semibold text-white mb-2 text-lg">{content.brand || 'Logo'}</h3>
+                                <p className="opacity-80">{content.slogan || 'Seu slogan ou subtítulo da empresa aqui.'}</p>
+                            </div>
+
+                            {/* Coluna 2: Menu */}
+                            <div>
+                                <h4 className="font-semibold text-white mb-3">Menu</h4>
+                                <ul className="space-y-2">
+                                    <li><a href="#" className="hover:text-white transition-colors">Início</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors">Serviços</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors">Sobre</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors">Benefícios</a></li>
+                                </ul>
+                            </div>
+
+                            {/* Coluna 3: Contato */}
+                            <div>
+                                <h4 className="font-semibold text-white mb-3">Contato</h4>
+                                <ul className="space-y-2">
+                                    <li><a href="#" className="hover:text-white transition-colors">WhatsApp</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors">Facebook</a></li>
+                                    <li><a href="#" className="hover:text-white transition-colors">Email</a></li>
+                                </ul>
+                            </div>
+
+                            {/* Coluna 4: Social */}
+                            <div>
+                                <h4 className="font-semibold text-white mb-3">Siga-nos</h4>
+                                <div className="flex gap-3">
+                                    <a href="#" className="w-8 h-8 flex items-center justify-center bg-gray-800 rounded hover:bg-gray-700 transition-colors">
+                                        <Instagram className="w-4 h-4 text-gray-400" />
+                                    </a>
+                                    <a href="#" className="w-8 h-8 flex items-center justify-center bg-gray-800 rounded hover:bg-gray-700 transition-colors">
+                                        <Facebook className="w-4 h-4 text-gray-400" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="text-center text-xs text-gray-600 border-t border-gray-800 mt-12 pt-6">
+                            {content.copyright || '© Direitos de criação: R&Vcodelab'}
+                        </div>
+                    </footer>
+                );
             case 'f1':
                 return (
                     <div className="py-12 px-8 border-t border-white/10" style={{ backgroundColor: 'var(--bg)', color: 'var(--text)' }}>

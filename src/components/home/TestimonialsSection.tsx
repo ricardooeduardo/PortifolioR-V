@@ -6,7 +6,7 @@ export const TestimonialsSection = () => {
   const testimonials = t('testimonials.items', { returnObjects: true }) as any[];
 
   return (
-    <section id="testimonials" className="section-standard bg-gradient-to-b from-background via-card/10 to-background border-y border-white/5 relative overflow-hidden">
+    <section id="testimonials" className="section-standard bg-leaf-section border-y border-border/50 relative overflow-hidden">
       <div className="section-container">
         <div className="text-center mb-12 animate-slide-up">
           <span className="inline-block px-4 py-2 rounded-full glass text-xs font-semibold uppercase tracking-wider text-primary mb-4">
